@@ -18,15 +18,19 @@
 import requests, json, ast
 
 #Get the access token from a file named accessToken
+#Se obtiene el código de acceso/access token del archivo llamado accessToken.
 f = open("accessToken", "r")
 TOKEN = f.read()
 TOKEN = TOKEN.rstrip("\r\n")
 f.close()
+
 #Generate the Authentication header
+#Se genera el Encabezado de Autenticación
 AUTH = "Bearer %s" % TOKEN
 headers = {'Authorization': AUTH, 'Content-Type': 'application/json'}
 
-#Get the list of userNames
+#Get the list of user
+#Se obtiene la lista de usuarios
 with open("users.csv", "r") as f:
     first = f.readline()
     first = first.rstrip("\r\n")
@@ -43,7 +47,8 @@ with open("users.csv", "r") as f:
 scimUser = "https://www.workplace.com/scim/v1/Users/"
 
 #for emailless users, we must leave userName blank and the unique employee ID is mapped to externalId
-#all emailless users are predefined as Frontline Employees, but if the 'frontline' field is empty the user will be excluded from frontline.
+#Para todos los usuarios sin correo electrónico es necesario dejar el nombre de usuario vacío. El identificador del usuario es mapeado al externalID
+
 state = {}
 for user in users:
     if user['external id'] != "" or (user['first name'] == "" and user['last name'] == ""):
