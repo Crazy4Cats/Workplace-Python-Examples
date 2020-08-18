@@ -1,8 +1,19 @@
+#English comments:
 #Create email-less users from a CSV file
 #This script requires the access token to be placed in a file named accessToken
 #The script also requires a list Workplace user names in a file named user.csv
 #The format of users.csv is to have 1 user name per line with no empty lines
 #The structure for the first row from CSV file with the users is: email,first name,last name,job title,department,phone number,location,locale,manager email,timezone,external id,organization,division,cost center,start date,frontline
+#If the 'frontline' field is left empty the user won't be assigned to the Frontline People Set. If it has any other character, the user will be added as a Frontline employee.
+
+#Spanish comments:
+#Este script permite crear usuarios sin correo electrónico a partir de un archivo CSV
+#El script necesita que el código de acceso/access token se coloque en un archivo llamado accesstoken
+#Los usuarios se tienen que agregar en un archivo llamado user.csv
+#El archivo no puede tener renglones vacíos y debe de haber sólo un usuario por renglón.
+#La estrucura del archivo es la siguiente: email,first name,last name,job title,department,phone number,location,locale,manager email,timezone,external id,organization,division,cost center,start date,frontline
+#Si el campo 'frontline' se deja vacío, el usuario no será asignado al Frontline/Primera Línea. Cualquier otro caracter en ese campo, hará que el usuario sea Frontline/Primera Línea
+
 
 import requests, json, ast
 
