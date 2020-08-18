@@ -14,6 +14,7 @@
 #La estrucura del archivo es la siguiente: email,first name,last name,job title,department,phone number,location,locale,manager email,timezone,external id,organization,division,cost center,start date,frontline
 #Si el campo 'frontline' se deja vacío, el usuario no será asignado al Frontline/Primera Línea. Cualquier otro caracter en ese campo, hará que el usuario sea Frontline/Primera Línea
 
+#More info / más información: https://developers.facebook.com/docs/workplace/reference/account-management-api
 
 import requests, json, ast
 
